@@ -184,7 +184,7 @@ export default function App() {
             {/* 既存のボタンがあればそのまま並べる */}
             <NoticeLink
               href="https://sore-honeycrisp-562.notion.site/TaskPort-292bc5dc6ec480cf8d64c97fe62c1b8b"
-              latestVersion="1.0.0" // 未読ドット不要ならこの行ごと消してOK
+              latestVersion="1.1.0" // 最新バージョンを指定
             />
           </div>
         </div>
