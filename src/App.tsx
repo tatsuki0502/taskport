@@ -6,7 +6,7 @@ import {
   format,
   startOfDay,
 } from "date-fns";
-import { Calendar, Plus } from "lucide-react";
+import { Calendar, Link, Plus } from "lucide-react";
 
 import type { Task } from "./Types";
 import { makeDateRange, fromISO, ymd } from "./utils/Date";
@@ -242,6 +242,26 @@ export default function App() {
                 <Plus className="w-4 h-4" />
                 タスク追加
               </button>
+              <button
+                className="px-3 py-1.5 rounded-xl border bg-green-500 text-white flex items-center gap-1 hover:bg-green-800"
+                onClick={() => {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set("start", viewStart);
+                  url.searchParams.set("days", viewDays.toString());
+                  navigator.clipboard
+                    .writeText(url.toString())
+                    .then(() => {
+                      alert("リンクをクリップボードにコピーしました！");
+                    })
+                    .catch(() => {
+                      alert("クリップボードへのコピーに失敗しました。");
+                    });
+                }}
+              >
+                <Link className="w-4 h-4" />
+                共有リンク生成
+              </button>
+
               <div className="h-6 w-px bg-slate-200 mx-1" />
               <button
                 className="px-3 py-1.5 rounded-xl border hover:bg-amber-100"
